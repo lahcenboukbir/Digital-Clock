@@ -1,0 +1,124 @@
+/* Importing the Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Styling for the main hero section */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    position: relative; /* Relative positioning for child elements */
+    background-color: #fbab7e;
+    background-image: linear-gradient(225deg, #fbab7e 0%, #f7ce68 100%);
+    color: #fff;
+}
+
+/* Styling for the container within the hero section */
+.container {
+    width: 90%;
+    max-width: 800px;
+    height: 180px;
+    position: absolute; /* Absolute positioning for precise placement */
+    top: 50%; /* Centering vertically */
+    left: 50%; /* Centering horizontally */
+    transform: translate(-50%, -50%); /* Centering trick */
+}
+
+/* Styling for the clock display */
+.clock {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(235, 0, 255, 0.11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    backdrop-filter: blur(40px); /* Applying a blur effect to the background */
+    padding: 20px;
+}
+
+/* Styling for the background element before the container */
+.container::before {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-color: #ff5c00;
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    left: -50px;
+    top: -50px;
+}
+
+/* Styling for the background element after the container */
+.container::after {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-color: #419aff;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    right: -50px;
+    bottom: -50px;
+}
+
+/* Styling for the clock span elements */
+.clock span {
+    font-size: 80px;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+/* Styling for the smaller text below the clock span elements */
+.clock span::after {
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Styling for the "hr", "min", and "sec" labels */
+.hrs::after {
+    content: "hr";
+}
+
+.min::after {
+    content: "min";
+}
+
+.sec::after {
+    content: "sec";
+}
+
+/* Media query for screens with a maximum width of 900px */
+@media screen and (max-width: 900px) {
+     /* Hide the background element before the container */
+    .container::before {
+        display: none; /* Hide the pseudo-element */
+    }
+
+    /* Hide the background element after the container */
+    .container::after {
+        display: none; /* Hide the pseudo-element */
+    }
+}
+
+/* Media query for screens with a maximum width of 600px */
+@media screen and (max-width: 600px) {
+    /* Adjust font size and width for smaller screens */
+    .clock span {
+        font-size: 60px;
+        width: 80px;
+    }
+
+}
